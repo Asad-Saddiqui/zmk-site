@@ -1,0 +1,12 @@
+<?php
+session_start();
+unset($_SESSION['agentID']);
+unset($_SESSION['agentEmail']);
+unset($_SESSION['agentImg']);
+unset($_SESSION['agentName']);
+unset($_SESSION['userID']);
+unset($_SESSION['userEmail']);
+unset($_SESSION['userImg']);
+unset($_SESSION['userName']);
+header('location:../login.php');
+?>
