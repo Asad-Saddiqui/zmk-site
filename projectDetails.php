@@ -79,6 +79,14 @@ $row = mysqli_fetch_assoc($query);
   
    
    <title><?php echo $row['project_name'];?></title>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .montserrat,div,a,p,span,i,h1,h2,h3,h4,h5,h6 {
+                    font-family: "Montserrat", sans-serif;
+                    font-optical-sizing: auto;
+                    font-style: normal;
+                    }
+        </style>
 </head>
 
 <body>
@@ -228,7 +236,16 @@ $row = mysqli_fetch_assoc($query);
                             <div style="margin: 84px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                     <div class=" table-striped font-14 pb-2 col-md-12 col-sm-12 col-lg-12 col-xl-12  ">
-                                        <?php echo html_entity_decode($row_['floorplan']); ?>
+                                        <?php  if($row_['floorplan']){
+                                            ?>
+                                     <h4 class="">Floor Plan</h4>
+
+                                         <embed src="./admin/uploads/<?php  echo $row_['floorplan'];?>" type="application/pdf" width="100%" height="600px" />
+
+                                            <?php
+                                            
+                                        }?>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -245,19 +262,29 @@ $row = mysqli_fetch_assoc($query);
                                     </div>
                                 </div>
                             </div>
+                                                                <?php 
+                                     if($row['PricingDocument']){
+?>
+        
                             <div style="margin: 20px 0px;">
                                 <div class="row col-md-12 col-sm-12  col-lg-12 col-xl-12">
                                     <div class="col-md-12 col-sm-12 col-lg-12 col-xl-12 " >
-                                     <h4 class="">Payment Plan</h4>
-                                     <div class="pdf_">
+                              <h4 class="">Payment Plan</h4>
+
+ <div class="pdf_">
                                           <embed id="pdf-viewer"
                                             src="./admin/uploads/<?php echo $row['PricingDocument']; ?>"
                                             type="application/pdf" width="100%" style="height:100%">
                                     </div>
+
+                                    
                                         
                                     </div>
                                 </div>
                             </div>
+                            <?php
+                                     }
+                                     ?>
                             <style>
                                 /* Button Styles */
                                 .pdfdownload {

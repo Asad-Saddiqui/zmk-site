@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $ListingCategory = isset($_POST['ListingCategory']) ? test_input($_POST['ListingCategory']) : "";
     $extradescription = isset($_POST['extradescription']) ? test_input($_POST['extradescription']) : "";
     $maplocationtext = isset($_POST['maplocationtext']) ? test_input($_POST['maplocationtext']) : "";
-    $floorplans = isset($_POST['floorplans']) ? test_input($_POST['floorplans']) : "";
+    // $floorplans = isset($_POST['floorplans']) ? test_input($_POST['floorplans']) : "";
 
     $uniqueName = "";
 
@@ -82,8 +82,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Description is too long. | OR |Empty";
     }elseif (strlen($maplocationtext) > $maxDescriptionLength || empty($description)) {
         $error = "Map location text is too long. | OR |Empty";
-    } elseif (strlen($floorplans) > $maxDescriptionLength || empty($description)) {
-        $error = "Floor plans is too long. | OR |Empty";
     } elseif (strlen($AboutNOC) > $maxDescriptionLength || empty($AboutNOC)) {
         $error = "NOC is too long. | OR |Empty";
     } elseif (strlen($ListingCategory) > 50 || empty($ListingCategory)) {
@@ -93,14 +91,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         $max_file_size = 7 * 1024 * 1024;
+        $max_file_size1 = 20 * 1024 * 1024;
         $img1 = handleFileUpload('project_image', $max_file_size, array('image/jpeg', 'image/png', 'image/jpg'), $rows_['project_image']);
         $img2 = handleFileUpload('NocRelatedImage', $max_file_size, array('image/jpeg', 'image/png', 'image/jpg'), $rows_['Noc Related Image :']);
-        $pdf1 = handleFileUpload('PricingDocument', $max_file_size, array('application/pdf'), $rows_['PricingDocument']);
+        $floorplans = handleFileUpload('floorplans', $max_file_size1, array('application/pdf'), $rows__['floorplan']);
+        $pdf1 = handleFileUpload('PricingDocument', $max_file_size1, array('application/pdf'), $rows_['PricingDocument']);
         $ownerimg = handleFileUpload('ownerimg', $max_file_size, array('image/jpeg', 'image/png', 'image/jpg'), $rows_['ownerimge']);
         $maplocatioimage = handleFileUpload('maplocatioimage', $max_file_size, array('image/jpeg', 'image/png', 'image/jpg'), $rows_['maplocationimg']);
         $pdf2 = handleFileUpload2('extraimage', $max_file_size, array('image/jpeg', 'image/png', 'image/jpg'), $rows_['RequireDocuments']);
 
-        if ($img1 && $img2 && $pdf1 && $pdf2 && $ownerimg && $maplocatioimage) {
+        if ($img1 && $img2 && $pdf2 && $ownerimg && $maplocatioimage) {
             $mysqli_ = mysqli_query($con, "SELECT * FROM projects where project_name='$projectName'");
             $num = mysqli_num_rows($mysqli_);
             $numRow = mysqli_fetch_assoc($mysqli_);
@@ -120,7 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     `AboutNOC`='$AboutNOC', 
                     `Noc Related Image :`='$img2', 
                     `FacilitiesandAmenties`='$extradescription', 
-                    `RequireDocuments`='$pdf2',
                     `RequireDocuments`='$pdf2',
                     `city`='$city',
                     `maplocationimg`='$maplocatioimage',
@@ -593,16 +592,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <input type="file" class="form-control  bg-white " name="maplocatioimage" id="input"
                                         id="exampleFormControlInput1" style="height: 60px;">
                                 </div>
-                                 <div class="form-group">
+                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
-                                        for="exampleFormControlTextarea1">Floor Plans</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
-
-                                    <textarea class="form-control  bg-white " name="floorplans" maxlength="4500"
-                                        placeholder="Enter Some Description less then 4500 characters"
-                                        id="floorplans" rows="7"><?php echo $rows__['floorplan'] ?></textarea>
+                                        for="exampleFormControlInput1 col-md-">Floor Plans</label>
+                                    <input type="file" class="form-control  bg-white " name="floorplans" id="input"
+                                        id="exampleFormControlInput1" style="height: 60px;">
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     

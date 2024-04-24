@@ -129,7 +129,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <th scope="col">Role</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">verified</th>
-                                    <th scope="col">Action</th>
+                                    <!-- <th scope="col">Action</th> -->
                                 </tr>
                             </thead>
                             <tbody>
@@ -181,29 +181,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                                         </td>
-                                        <?php
-                                        if ($_SESSION['adminID'] === $row['0']) {
-                                        ?>
-                                            <td><a href="./adminlist.php">@</a></td>
-
-
-                                        <?php
-
-                                        } elseif((int)$row['0'] === 1) {
-                                        ?>
-                                            <td><a href="./adminlist.php">@</a></td>
-
-
-
-                                        <?php
-                                        }else{
-                                            ?>
-                                            <td><a href="./admindelete.php?id=<?php echo $row['0']; ?>"><button class="btn btn-sm btn-primary"><i class="bi bi-trash"></i></button></a></td>
-
-                                            <?php
-                                        }
-
-                                        ?>
+                                        
                                     </tr>
                                 <?php
                                     $cnt = $cnt + 1;

@@ -88,6 +88,14 @@ $rowApp = mysqli_fetch_assoc($query);
     <!--	Title
 	=========================================================-->
     <title>ZMK <?php echo $rowApp['title']; ?></title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .montserrat,div,a,p,span,i,h1,h2,h3,h4,h5,h6 {
+                    font-family: "Montserrat", sans-serif;
+                    font-optical-sizing: auto;
+                    font-style: normal;
+                    }
+        </style>
 </head>
 
 <body>

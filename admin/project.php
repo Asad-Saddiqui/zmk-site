@@ -6,6 +6,7 @@ include('./check_status.php');
 if (!isset($_SESSION['adminEmail'])) {
     header("location:../login.php");
 }
+
 function test_input($data)
 {
     $data = trim($data);
@@ -14,18 +15,21 @@ function test_input($data)
     return $data;
 }
 
-function generateUniqueName1($originalName,$projectName,$i)
+function generateUniqueName1($originalName, $projectName, $i)
 {
-    return  $projectName.'-' .$i.'-'. $originalName;
+    return $projectName . '-' . $i . '-' . $originalName;
 }
+
 function generateUniqueName($originalName)
-{  $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+{
+    $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
     return time() . uniqid() . '-.' . $extension;
 }
 
 $error = false;
 $success = "";
 $extraimages;
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Define maximum lengths for fields
     $maxProjectNameLength = 100;
@@ -33,7 +37,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $maxAddressLength = 70;
     $maxFeaturesLength = 800;
     $maxDescriptionLength = 4500;
-
+    $floorplans_name="";
+    $PricingDocument_name="";
     // Validate and sanitize form inputs
     $projectName = isset($_POST['project_name']) ? test_input($_POST['project_name']) : "";
     $city = isset($_POST['city']) ? $_POST['city'] : "";
@@ -42,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $features = isset($_POST['features']) ? test_input($_POST['features']) : "";
     $description = isset($_POST['description']) ? test_input($_POST['description']) : "";
     $maplocationtext = isset($_POST['maplocationtext']) ? test_input($_POST['maplocationtext']) : "";
-    $floorplans = isset($_POST['floorplans']) ? test_input($_POST['floorplans']) : "";
     $AboutNOC = isset($_POST['AboutNOC']) ? test_input($_POST['AboutNOC']) : "";
     $category = isset($_POST['category']) ? test_input($_POST['category']) : "";
     $ListingCategory = isset($_POST['ListingCategory']) ? test_input($_POST['ListingCategory']) : "";
@@ -68,12 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (strlen($extradescription) > 4500 || empty($extradescription)) {
         $error = true;
         echo '<script>alert("Enter  features and ammenities   less then ' . 4500 . 'char")</script>';
-    }elseif (strlen($maplocationtext) > 4500 || empty($maplocationtext)) {
+    } elseif (strlen($maplocationtext) > 4500 || empty($maplocationtext)) {
         $error = true;
         echo '<script>alert("Map Location Points   less then ' . 4500 . 'char")</script>';
-    }elseif (strlen($floorplans) > 4500 || empty($floorplans)) {
-        $error = true;
-        echo '<script>alert("Enter  floor plans  less then ' . 4500 . 'char")</script>';
     } elseif (strlen($description) > $maxDescriptionLength || empty($description)) {
         $error = true;
         echo '<script>alert("Enter  Description   less then ' . $maxDescriptionLength . 'char")</script>';
@@ -87,165 +88,192 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = true;
         echo '<script>alert("Select  cateory less then ' . 50 . 'char")</script>';
     } else {
-        
-            // Check if project image is uploaded
-            $file_name = $_FILES['project_image']['name'];
-            $PricingDocument_name = $_FILES['PricingDocument']['name'];
-            $NocRelatedImage_name = $_FILES['NocRelatedImage']['name'];
-            $maplocatioimage_name = $_FILES['maplocatioimage']['name'];
-            $ownerimg_name = $_FILES['ownerimg']['name'];
+        // Check if project image is uploaded
+        $file_name = $_FILES['project_image']['name'];
+        $NocRelatedImage_name = $_FILES['NocRelatedImage']['name'];
+        $maplocatioimage_name = $_FILES['maplocatioimage']['name'];
+        $ownerimg_name = $_FILES['ownerimg']['name'];
 
-            $extraimages = $_FILES['extraimage']['name'];
-            $extraimages_type = $_FILES['extraimage']['type'];
-            $extraimages_size = $_FILES['extraimage']['size'];
-            $extraimages_tmp_name = $_FILES['extraimage']['tmp_name'];
+        $extraimages = $_FILES['extraimage']['name'];
+        $extraimages_type = $_FILES['extraimage']['type'];
+        $extraimages_size = $_FILES['extraimage']['size'];
+        $extraimages_tmp_name = $_FILES['extraimage']['tmp_name'];
 
-            $maplocatioimage_tmp_name = $_FILES['maplocatioimage']['tmp_name'];
-            $ownerimg_tmp_name = $_FILES['ownerimg']['tmp_name'];
+        $maplocatioimage_tmp_name = $_FILES['maplocatioimage']['tmp_name'];
+        $ownerimg_tmp_name = $_FILES['ownerimg']['tmp_name'];
 
-            $NocRelatedImage_tmp_name = $_FILES['NocRelatedImage']['tmp_name'];
-            $file_tmp_name = $_FILES['project_image']['tmp_name'];
-            $PricingDocumenttmp_name = $_FILES['PricingDocument']['tmp_name'];
-            $NocRelatedImage_size = $_FILES['NocRelatedImage']['size'];
-            $file_size = $_FILES['project_image']['size'];
+        $NocRelatedImage_tmp_name = $_FILES['NocRelatedImage']['tmp_name'];
+        $file_tmp_name = $_FILES['project_image']['tmp_name'];
 
-            $maplocatioimage_size = $_FILES['maplocatioimage']['size'];
-            $ownerimg_size = $_FILES['maplocatioimage']['size'];
-            $PricingDocumentsize = $_FILES['PricingDocument']['size'];
+        $NocRelatedImage_size = $_FILES['NocRelatedImage']['size'];
+        $file_size = $_FILES['project_image']['size'];
 
-            $maplocatioimage_type = $_FILES['maplocatioimage']['type'];
-            $ownerimg_type = $_FILES['maplocatioimage']['type'];
+        $maplocatioimage_size = $_FILES['maplocatioimage']['size'];
+        $ownerimg_size = $_FILES['maplocatioimage']['size'];
 
-            $PricingDocumenttype = $_FILES['PricingDocument']['type'];
-            $NocRelatedImagetype = $_FILES['NocRelatedImage']['type'];
-            $file_type = $_FILES['project_image']['type'];
+        $maplocatioimage_type = $_FILES['maplocatioimage']['type'];
+        $ownerimg_type = $_FILES['maplocatioimage']['type'];
 
-            // Define maximum file size (5MB)
-            $max_file_size = 7 * 1024 * 1024;
+        $NocRelatedImagetype = $_FILES['NocRelatedImage']['type'];
+        $file_type = $_FILES['project_image']['type'];
 
-            // Define allowed file types
-            $allowed_types = array('image/jpeg', 'image/png', 'image/jpg');
-            $PricingDocumentallowed_types = array('application/pdf');
+        // Define maximum file size (5MB)
+        $max_file_size = 7 * 1024 * 1024;
 
-            // Check file size
-            if ($file_size > $max_file_size) {
+        // Define allowed file types
+        $allowed_types = array('image/jpeg', 'image/png', 'image/jpg');
+
+        // Check file size
+        if ($file_size > $max_file_size) {
+            $error = true;
+            echo '<script>alert("Project image size exceeds maximum limit (7MB).")</script>';
+        } elseif ($NocRelatedImage_size > $max_file_size) {
+            $error = true;
+            echo '<script>alert("NOC File size exceeds maximum limit (7MB).")</script>';
+        } elseif ($maplocatioimage_size > $max_file_size) {
+            $error = true;
+            echo '<script>alert("Map Image size exceeds maximum limit (7MB).")</script>';
+        } elseif ($ownerimg_size > $max_file_size) {
+            $error = true;
+            echo '<script>alert("Owner img size exceeds maximum limit (7MB).")</script>';
+        } else {
+            if (!in_array($file_type, $allowed_types)) {
                 $error = true;
-                echo '<script>alert("Project image size exceeds maximum limit (7MB).")</script>';
-            } elseif ($PricingDocumentsize > $max_file_size) {
+                echo '<script>alert("Project image Invalid  type. Supported formats: JPG, JPEG, PNG.")</script>';
+            } elseif (!in_array($maplocatioimage_type, $allowed_types)) {
                 $error = true;
-                echo '<script>alert("Pricing file size exceeds maximum limit (7MB).")</script>';
-            } elseif ($NocRelatedImage_size > $max_file_size) {
+                echo '<script>alert("Invalid Map Location  file. Supported formats: JPG, JPEG, PNG.")</script>';
+            } elseif (!in_array($ownerimg_type, $allowed_types)) {
                 $error = true;
-                echo '<script>alert("NOC File size exceeds maximum limit (7MB).")</script>';
-            }elseif ($maplocatioimage_size > $max_file_size) {
+                echo '<script>alert("Invalid owner img  file. Supported formats: JPG, JPEG, PNG.")</script>';
+            } elseif (!in_array($NocRelatedImagetype, $allowed_types)) {
                 $error = true;
-                echo '<script>alert("Map Image size exceeds maximum limit (7MB).")</script>';
-            }elseif ($ownerimg_size > $max_file_size) {
-                $error = true;
-                echo '<script>alert("Owner img size exceeds maximum limit (7MB).")</script>';
+                echo '<script>alert("Invalid  NOC Image file type. Supported formats: JPG, JPEG, PNG.")</script>';
             } else {
-                if (!in_array($file_type, $allowed_types)) {
+                if (empty($_FILES['extraimage']['name'][0])) {
                     $error = true;
-                    echo '<script>alert("Project image Invalid  type. Supported formats: JPG, JPEG, PNG.")</script>';
-                } elseif (!in_array($PricingDocumenttype, $PricingDocumentallowed_types)) {
-                    $error = true;
-                    echo '<script>alert("Invalid Pricing Document  file. Supported formats: .pdf")</script>';
-                } elseif (!in_array($maplocatioimage_type, $allowed_types)) {
-                    $error = true;
-                    echo '<script>alert("Invalid Map Location  file. Supported formats: JPG, JPEG, PNG.")</script>';
-                } elseif (!in_array($ownerimg_type, $allowed_types)) {
-                    $error = true;
-                    echo '<script>alert("Invalid owner img  file. Supported formats: JPG, JPEG, PNG.")</script>';
-                } elseif (!in_array($NocRelatedImagetype, $allowed_types)) {
-                    $error = true;
-                    echo '<script>alert("Invalid  NOC Image file type. Supported formats: JPG, JPEG, PNG.")</script>';
-                } else {
-                    if (empty($_FILES['extraimage']['name'][0])) {
+                    echo '<script>alert("Please Upload Gallery Images")</script>';
+                }
+                // Check if pricing file is uploaded
+                $FloorplansName = "";
+                $PricingDocumentName = "";
+                $PricingDocumentNamePath = "";
+                $FloorplansPath = "";
+                if ($_FILES["PricingDocument"]["error"] == UPLOAD_ERR_OK) {
+                    $PricingDocumenttype = $_FILES['PricingDocument']['type'];
+                    $PricingDocumentsize = $_FILES['PricingDocument']['size'];
+                    $PricingDocumentallowed_types = array('application/pdf');
+                    $PricingDocument_name = $_FILES['PricingDocument']['name'];
+                    $PricingDocumenttmp_name = $_FILES['PricingDocument']['tmp_name'];
+                    if (!in_array($PricingDocumenttype, $PricingDocumentallowed_types)) {
                         $error = true;
-                        echo '<script>alert("Please Upload Gallery Images")</script>';
+                        echo '<script>alert("Invalid Pricing  file. Supported formats: JPG, JPEG, PNG.")</script>';
                     }
-                    if (!$error) {
-                        $totalFiles = count($_FILES['extraimage']['name']);
-                        $namesImages = [];
-                        $imagePaths = [];
-                        $maxImages = 4;
-                        $maxSize = 7 * 1024 * 1024;
-                        $totalFiles = count($_FILES['extraimage']['name']);
-                        for ($i = 0; $i < $totalFiles; $i++) {
-                            $originalName = $_FILES['extraimage']['name'][$i];
-                            $tmpName = $_FILES['extraimage']['tmp_name'][$i];
-                            $size = $_FILES['extraimage']['size'][$i];
-                            $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
-                            if (!in_array($extension, ['jpg', 'jpeg', 'png'])) {
-                                // Skip the current file if it has an invalid format
-                                continue;
-                            }
-                            if ($size > $maxSize) {
-                                // Skip the current file if it exceeds the maximum size
-                                continue;
-                            }
-                            $uniqueName_ = generateUniqueName1($originalName, $projectName, $i);
-                            $namesImages[] = $uniqueName_;
-                            $imagePaths[] = $tmpName;
-                            if (count($imagePaths) >= $maxImages) {
-                                // Stop processing after reaching the maximum number of images
-                                break;
-                            }
+                    $PricingDocumentName = generateUniqueName($PricingDocument_name);
+                    $PricingDocumentNamePath = './uploads/' . $PricingDocumentName; // C
+                } else {
+                    $PricingDocumentName = "";
+                    // Pricing file not uploaded
+                    // Handle accordingly (e.g., show error message or proceed with default action)
+                }
+                if ($_FILES["floorplans"]["error"] == UPLOAD_ERR_OK) {
+                    $floorplanstype = $_FILES['floorplans']['type'];
+                    $floorplanssize = $_FILES['floorplans']['size'];
+                    $floorplansallowed_types = array('application/pdf');
+                    $floorplans_name = $_FILES['floorplans']['name'];
+                    $floorplanstmp_name = $_FILES['floorplans']['tmp_name'];
+                    if (!in_array($floorplanstype, $floorplansallowed_types)) {
+                        $error = true;
+                        echo '<script>alert("Invalid Floor Plan  file. Supported formats: JPG, JPEG, PNG.")</script>';
+                    }
+                    $FloorplansName = generateUniqueName($floorplans_name);
+                    $FloorplansPath = './uploads/' . $FloorplansName; // Change this path as needed
+                    // Move the uploaded file to desired directory
+                } else {
+                    $FloorplansName = "";
+                }
+                if (!$error) {
+                    $totalFiles = count($_FILES['extraimage']['name']);
+                    $namesImages = [];
+                    $imagePaths = [];
+                    $maxImages = 4;
+                    $maxSize = 7 * 1024 * 1024;
+                    $totalFiles = count($_FILES['extraimage']['name']);
+                    for ($i = 0; $i < $totalFiles; $i++) {
+                        $originalName = $_FILES['extraimage']['name'][$i];
+                        $tmpName = $_FILES['extraimage']['tmp_name'][$i];
+                        $size = $_FILES['extraimage']['size'][$i];
+                        $extension = strtolower(pathinfo($originalName, PATHINFO_EXTENSION));
+                        if (!in_array($extension, ['jpg', 'jpeg', 'png'])) {
+                            // Skip the current file if it has an invalid format
+                            continue;
                         }
-                        $serializedArray = json_encode($namesImages);
-                        $NocRelatedImage_uique = generateUniqueName($NocRelatedImage_name);
-                        $PricingDocumentName = generateUniqueName($PricingDocument_name);
-                        $uniqueName = generateUniqueName($file_name);
+                        if ($size > $maxSize) {
+                            // Skip the current file if it exceeds the maximum size
+                            continue;
+                        }
+                        $uniqueName_ = generateUniqueName1($originalName, $projectName, $i);
+                        $namesImages[] = $uniqueName_;
+                        $imagePaths[] = $tmpName;
+                        if (count($imagePaths) >= $maxImages) {
+                            // Stop processing after reaching the maximum number of images
+                            break;
+                        }
+                    }
+                    $serializedArray = json_encode($namesImages);
+                    $NocRelatedImage_uique = generateUniqueName($NocRelatedImage_name);
+                    $uniqueName = generateUniqueName($file_name);
 
-                        $ownerimgu = generateUniqueName($ownerimg_name);
-                        $maplocatioimageu = generateUniqueName($maplocatioimage_name);
-                        $maplocatioimage_Path = './uploads/' . $maplocatioimageu; // Change this path as needed
-                        $ownerimg_Path = './uploads/' . $ownerimgu; // Change this path as needed
+                    $ownerimgu = generateUniqueName($ownerimg_name);
+                    $maplocatioimageu = generateUniqueName($maplocatioimage_name);
+                    $maplocatioimage_Path = './uploads/' . $maplocatioimageu; // Change this path as needed
+                    $ownerimg_Path = './uploads/' . $ownerimgu; // Change this path as needed
 
-                        $NocRelatedImage_Path = './uploads/' . $NocRelatedImage_uique; // Change this path as needed
-                        $PricingDocumentNamePath = './uploads/' . $PricingDocumentName; // Change this path as needed
-                        $targetPath = './uploads/' . $uniqueName; // Change this path as needed
+                    $NocRelatedImage_Path = './uploads/' . $NocRelatedImage_uique; // Change this path as needed
+                    $targetPath = './uploads/' . $uniqueName; // Change this path as needed
 
-                        if (count($imagePaths) > 0) {
-                            $mysqli_ = mysqli_query($con, "SELECT * FROM projects where project_name='$projectName'");
-                            $num = mysqli_num_rows($mysqli_);
-                            if ($num == 1) {
-                    echo '<script>alert("Project Already Exist")</script>';
-                              
-                            } else {
-                                $query = "INSERT INTO `projects` (`project_id`, `project_name`, `map_url`, `address`, `features`, `description`, `category`, `project_image`, `created_at`, `ListingCategory`, `PricingDocument`, `AboutNOC`, `Noc Related Image :`, `FacilitiesandAmenties`, `RequireDocuments`,`city`,`maplocationimg`,`ownerimge`) 
-                                            VALUES (NULL, '$projectName', '$mapUrl', '$address', '$features', '$description', '$category', '$uniqueName', current_timestamp(), '$ListingCategory', '$PricingDocumentName', '$AboutNOC', '$NocRelatedImage_uique', '$extradescription', '$serializedArray','$city','$maplocatioimageu','$ownerimgu')";
-                                if (mysqli_query($con, $query)) {
-                                    $inserted_id = mysqli_insert_id($con);
-                                    $query1="INSERT INTO `projectsextends` (`eid`, `maplocationtext`, `floorplan`, `porEid`) VALUES (NULL, '$maplocationtext', '$floorplans', '$inserted_id')";
-                                    mysqli_query($con, $query1);
-                                    for ($i = 0; $i < count($imagePaths); $i++) {
-                                        $targetPath_ = './uploads/' . $namesImages[$i];
-                                        move_uploaded_file($imagePaths[$i], $targetPath_);
-                                    }
-                                      move_uploaded_file($ownerimg_tmp_name, $ownerimg_Path);
-                                      move_uploaded_file($maplocatioimage_tmp_name, $maplocatioimage_Path);
-                                      move_uploaded_file($PricingDocumenttmp_name, $PricingDocumentNamePath);
-                                    move_uploaded_file($NocRelatedImage_tmp_name, $NocRelatedImage_Path);
-                                    if(move_uploaded_file($file_tmp_name, $targetPath)){
-                                         echo '<script>alert("Project Added Successfuly")</script>';
+                    if (count($imagePaths) > 0) {
+                        $mysqli_ = mysqli_query($con, "SELECT * FROM projects where project_name='$projectName'");
+                        $num = mysqli_num_rows($mysqli_);
+                        if ($num == 1) {
+                            echo '<script>alert("Project Already Exist")</script>';
+                        } else {
+                            $query = "INSERT INTO `projects` (`project_id`, `project_name`, `map_url`, `address`, `features`, `description`, `category`, `project_image`, `created_at`, `ListingCategory`, `PricingDocument`, `AboutNOC`, `Noc Related Image :`, `FacilitiesandAmenties`, `RequireDocuments`,`city`,`maplocationimg`,`ownerimge`) 
+                                        VALUES (NULL, '$projectName', '$mapUrl', '$address', '$features', '$description', '$category', '$uniqueName', current_timestamp(), '$ListingCategory', '$PricingDocumentName', '$AboutNOC', '$NocRelatedImage_uique', '$extradescription', '$serializedArray','$city','$maplocatioimageu','$ownerimgu')";
+                            if (mysqli_query($con, $query)) {
+                                $inserted_id = mysqli_insert_id($con);
+                                $query1 = "INSERT INTO `projectsextends` (`eid`, `maplocationtext`, `floorplan`, `porEid`) VALUES (NULL, '$maplocationtext', '$FloorplansName', '$inserted_id')";
+                                mysqli_query($con, $query1);
+                                for ($i = 0; $i < count($imagePaths); $i++) {
+                                    $targetPath_ = './uploads/' . $namesImages[$i];
+                                    move_uploaded_file($imagePaths[$i], $targetPath_);
+                                }
+                                move_uploaded_file($ownerimg_tmp_name, $ownerimg_Path);
+                                if($floorplans_name){
 
+                                    move_uploaded_file($floorplanstmp_name, $FloorplansPath);
+                                }
+                                if($PricingDocument_name){
 
-                                    }
-                                  
-                                  
+                                    move_uploaded_file($PricingDocumenttmp_name, $PricingDocumentNamePath);
+                                }
+                                move_uploaded_file($maplocatioimage_tmp_name, $maplocatioimage_Path);
+                                move_uploaded_file($NocRelatedImage_tmp_name, $NocRelatedImage_Path);
+                                if (move_uploaded_file($file_tmp_name, $targetPath)) {
+                                    echo '<script>alert("Project Added Successfuly")</script>';
                                 }
                             }
-                        } else {
-                            echo '<script>alert("Select atleast 1 Gallery  image")</script>';
                         }
+                    } else {
+                        echo '<script>alert("Select atleast 1 Gallery  image")</script>';
                     }
                 }
             }
-        
+        }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -452,7 +480,7 @@ input {
                    
                     <hr>
                     <div class="container  col-sm-12 col-md-12 col-lg-12">
-                        <h2 class="text-dark"><?php echo $error;
+                        <h2 class="text-dark"><?php
                                                 echo $success; ?></h2>
                         <style>
                         #input {
@@ -590,21 +618,12 @@ input {
                                     <input type="file" class="form-control  bg-white " name="maplocatioimage" id="input"
                                         id="exampleFormControlInput1" style="height: 60px;">
                                 </div>
-                                 <div class="form-group">
+                                 
+                                <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
-                                        for="exampleFormControlTextarea1">Floor Plans</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
-
-                                    <textarea class="form-control  bg-white " name="floorplans" maxlength="4500"
-                                        placeholder="Enter Some Description less then 4500 characters"
-                                        id="floorplans" rows="7">
-
-                                    <h4 style="text-align: left;"><strong><span style="color: #000000;">Floor Plans For (Project Or Socity):</span></strong></h4>
-                                    <hr />
-                                    <p>To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin.</p>
-                                                                        </textarea>
+                                        for="exampleFormControlInput1 col-md-">Floor Plans</label>
+                                    <input type="file" class="form-control  bg-white " name="floorplans" id="input"
+                                        id="exampleFormControlInput1" style="height: 60px;">
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -851,12 +870,12 @@ input {
             $('#imagePreviewContainer').empty(); // Clear previous previews
 
             // Limit the number of selected images to 10
-            var maxImages = 4;
+            var maxImages = 8;
             var selectedImages = this.files.length;
 
             // Check if the number of selected images exceeds the limit
             if (selectedImages > maxImages) {
-                alert("You can only select up to 10 images.");
+                alert("You can only select up to 8 images.");
                 return;
             }
 

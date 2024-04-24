@@ -97,8 +97,31 @@ $uid = $_GET['aid'];
 
 
                         ?>
-                        <h6 class="mb-4 mt-4"><?php echo $row['role']; ?></h6>
+                        <h6 class="mb-4 mt-4 text-dark"><?php echo $row['role']; ?>
+<?php
+                                        if ($_SESSION['adminID'] === $row['id']) {
+                                        ?>
+                                            <td><a href="./adminlist.php">@</a></td>
 
+
+                                        <?php
+
+                                        } elseif((int)$row['id'] === 1) {
+                                        ?>
+                                            <td><a href="./adminlist.php">@</a></td>
+
+
+
+                                        <?php
+                                        }else{
+                                            ?>
+                                            <td><a href="./admindelete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-sm btn-primary"><i class="bi bi-trash"></i></button></a></td>
+
+                                            <?php
+                                        }
+
+                                        ?>
+                                        </h6>
                         <div class="owl-carousel testimonial-carousel mt-3">
                             <div class="testimonial-item text-center">
                                 <img class="img-fluid rounded-circle mx-auto mb-4" src="./common//user/<?php echo $row['img']; ?>" style="width: 200px; height: 200px;">

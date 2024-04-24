@@ -81,10 +81,11 @@ if (isset($_POST['like'])) {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!--	Title
+=========================================================-->
+<title>ZMK Marketing</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!--	Title
-	=========================================================-->
-    <title>ZMK Marketing</title>
+   
 </head>
 
 <body>
@@ -172,7 +173,7 @@ if (isset($_POST['like'])) {
           .text-color{
             color:white;
           }
-          .montserrat,div,a,p,span,i {
+          .montserrat,div,a,p,span,i,h1,h2,h3,h4,h5,h6 {
                     font-family: "Montserrat", sans-serif;
                     font-optical-sizing: auto;
                     font-style: normal;
@@ -184,7 +185,7 @@ if (isset($_POST['like'])) {
 <div style="width: 100%; height: auto;">
     <div class="swiper ">
         <!-- mySwiper -->
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper mySwiper">
             <?php
             $count = 0;
             $query = mysqli_query($con, "SELECT * FROM `projects` ORDER BY `description` DESC");
@@ -357,7 +358,7 @@ if (isset($_POST['like'])) {
                                             style="color:#f36c21" aria-hidden="true"></i>
                                         <div class="pl-2">
                                             <h5 class="mb-3">Mission and Vision</h5>
-                                            <p>Transforming businesses with creative
+                                            <p class="text-white">Transforming businesses with creative
                                                 strategies, pioneering excellence, and
                                                 fostering growth for lasting industry
                                                 impact and success..</p>
@@ -368,7 +369,7 @@ if (isset($_POST['like'])) {
                                             style="color:#f36c21" aria-hidden="true"></i>
                                         <div class="pl-2">
                                             <h5 class="mb-3">Our Services</h5>
-                                            <p>Delivering comprehensive marketing
+                                            <p class="text-white">Delivering comprehensive marketing
                                                 solutions including digital, social
                                                 media, branding, content creation,
                                                 and strategic campaigns for
@@ -380,7 +381,7 @@ if (isset($_POST['like'])) {
                                             style="color:#f36c21" aria-hidden="true"></i>
                                         <div class="pl-2">
                                             <h5 class="mb-3">Company Profile</h5>
-                                            <p>ZMK Marketing specializes in innovative
+                                            <p class="text-white">ZMK Marketing specializes in innovative
                                                 strategies, data-driven insights, and
                                                 creative solutions to propel businesses
                                                 towards sustainable growth.</p>
