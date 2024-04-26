@@ -308,7 +308,7 @@ $row = mysqli_fetch_assoc($query);
                             <hr>
                             
                             <style>
-                                .projectimg{
+                                /* .projectimg{
                                     height:450px;
                                     width:100%;
 
@@ -316,7 +316,7 @@ $row = mysqli_fetch_assoc($query);
                                 .projectimg img{
                                     height: 100%;
                                     width:100%
-                                }
+                                } */
 
                                 </style>
 
