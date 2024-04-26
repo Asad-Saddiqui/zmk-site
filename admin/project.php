@@ -577,18 +577,11 @@ input {
                                 <div class="form-group">
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlTextarea1">Owner and Developer Information</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
+                                 
 
                                     <textarea class="form-control  bg-white " name="description" maxlength="4500"
                                         placeholder="Enter Some Description less then 4500 characters"
-                                        id="exampleFormControlTextarea2" rows="3">
-
-                                    <h4 style="text-align: left;"><strong><span style="color: #000000;">Owner and Developer Information:</span></strong></h4>
-<hr />
-<p>To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin.</p>
-                                    </textarea>
+                                        id="" rows="3"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -598,19 +591,12 @@ input {
                                 </div>
                                 <div class="form-group">
                                     <label style="color:black; font-size:20px; font-weight:bold"
-                                        for="exampleFormControlTextarea1">Map location Points</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
+                                        for="exampleFormControlTextarea1">Nearest Locations</label>
+                                    
 
                                     <textarea class="form-control  bg-white " name="maplocationtext" maxlength="4500"
                                         placeholder="Enter Some Description less then 4500 characters"
-                                        id="maplocationtext" rows="7">
-
-                                    <h4 style="text-align: left;"><strong><span style="color: #000000;">Map Location For (Project Or Socity):</span></strong></h4>
-                                    <hr />
-                                    <p>To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin.</p>
-                                                                        </textarea>
+                                        id="" rows="7"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -634,14 +620,10 @@ input {
                                 <div class="form-group my-3">
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlTextarea2">About NOC</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
+                                    
                                     <textarea class="form-control  bg-white" name="AboutNOC" maxlength="4500"
                                         placeholder="Enter Some Description less then 4500 characters"
-                                        id="exampleFormControlTextarea3" rows="3">
-<p>To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin.</p>
-                                </textarea>
+                                        id="" rows="3"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"

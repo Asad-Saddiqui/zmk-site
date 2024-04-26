@@ -126,16 +126,23 @@ $row = mysqli_fetch_assoc($query);
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <h4 class="text-secondary">Features</h4>
-                                <p class=""><?php echo html_entity_decode($row['features']); ?></p>
+                                <h4 class="text-secondary">Overview</h4>
+                                <p class=""><?php echo $row['features']; ?></p>
                             </div>
+                             <style>
+                                        .NOC{
+                                            width: 100%;
+                                            margin-top:1px;
+                                        }
+                                        </style>
                             <div style="margin: 20px 0px;">
                                 <div class="row col-md-12 col-sm-12  col-lg-12 col-xl-12">
-                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 ">
-                                        <?php echo html_entity_decode($row['description']); ?>
+                                <h4 class="text-secondary col-md-12 col-sm-12  col-lg-12 col-xl-12">Owner & Developer Info</h4>
+
+                                    <div class="col-md-7 col-sm-12 col-lg-7 col-xl-7  ">
+                                        <p class=""><?php echo $row['description']; ?></p>
                                     </div>
-                                    <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6" style="height:auto">
-                                        <h4 class="text-white">.</h4>
+                                    <div class="col-md-5  col-sm-12 col-lg-5 col-xl-5" style="height:auto">
                                      
                                             <img class="NOC" src="./admin/uploads/<?php echo $row['ownerimge']; ?>"
                                                 alt="no image">
@@ -210,17 +217,17 @@ $row = mysqli_fetch_assoc($query);
                                     </div>
                                 </div>
                             </div>
+                           
                             <div style="margin: 84px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
+                                        <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12 ">Noc Related Info:</h4>
+
                                     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 ">
-                                        <h4 class="text-dark" >Noc Related Info:</h4>
-                                        <hr>
                                         <img class="NOC" src="./admin/uploads/<?php echo $row['Noc Related Image :']; ?>"
                                             alt="no image">
                                     </div>
                                     <div class=" table-striped font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
-                                        <h4 class="text-white">.</h4>
-                                        <?php echo html_entity_decode($row['AboutNOC']); ?>
+                                        <?php echo $row['AboutNOC']; ?>
                                     </div>
                                 </div>
                             </div>
@@ -251,14 +258,15 @@ $row = mysqli_fetch_assoc($query);
                             </div>
                             <div style="margin: 84px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
+                                    <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12">Nearest Locations</h4>
                                     
-                                    <div class=" table-striped font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
-                                        <h4 class="text-white">.</h4>
-                                        <?php echo html_entity_decode($row_['maplocationtext']); ?>
-                                    </div>
+                                    
                                     <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 ">
                                         <img class="NOC" src="./admin/uploads/<?php echo $row['maplocationimg']; ?>"
                                             alt="no image">
+                                    </div>
+                                    <div class=" table-striped font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
+                                        <?php echo $row_['maplocationtext']; ?>
                                     </div>
                                 </div>
                             </div>
@@ -299,14 +307,28 @@ $row = mysqli_fetch_assoc($query);
                             <h4 class="text-center"> <?php echo $row['project_name'] ?> Gallery</h4>
                             <hr>
                             
-                            <div class="swiper col-lg-12 col-xl-12 col-md-12 col-sm-12 mySwiper   m-4 pr-4 ">
+                            <style>
+                                .projectimg{
+                                    height:450px;
+                                    width:100%;
+
+                                }
+                                .projectimg img{
+                                    height: 100%;
+                                    width:100%
+                                }
+
+                                </style>
+
+                          <div class="container">
+                              <div class="swiper col-lg-12 col-xl-12 col-md-12 col-sm-12 mySwiper   m-4 pr-4 ">
                                 <div class="swiper-wrapper">
                                     <?php
                                         $images = $row['RequireDocuments'];
                                         $array = json_decode($images);
                                         for ($i=0; $i <count($array) ; $i++) { 
                                     ?>
-                                    <div class="swiper-slide swiperDetails">
+                                    <div class="swiper-slide projectimg">
                                         <img src="./admin/uploads/<?php echo $array[$i] ?>" alt="no image">
                                     </div>
                                     <?php
@@ -315,6 +337,7 @@ $row = mysqli_fetch_assoc($query);
                                 </div>
                                 <div class="swiper-pagination"></div>
                             </div>
+                            <div>
                             <div class="d-flex  ml-3
                              justify-content-center">
                                 <a href="./admin/uploads/<?php echo $row['RequireDocuments']; ?>" download="filename.pdf" class="download-button">

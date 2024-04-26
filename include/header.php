@@ -12,14 +12,14 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                             height:80px;
                             width:auto;
                         }
-                     p{
+                     /* p{
                         font-size: 23px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
                 font-family: "gilroy-semibold, Sans-serif";
 
-                     }
+                     } */
                      .pdf_{
                         width:100%;
                         height:400px
@@ -80,10 +80,8 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                         font-size:20px;
                     }
                     p{
-                        font-size: 22px;
-                        font-family: sans-serif;
-                        letter-spacing: 1px;
-                        color: #6d6d6d;
+                    font-family: "Montserrat", sans-serif;
+
                     }
                     .swiper2 {
                         height: auto;
@@ -102,12 +100,7 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                     .text-capitalize{
                         font-size:20px;
                     }
-                    p{
-                        font-size: 18px;
-                        font-family: sans-serif;
-                        letter-spacing: 1px;
-                        color: #6d6d6d;
-                    }
+                    
                     .swiper2 {
                         width: 100%;
                         height: auto;
@@ -125,12 +118,12 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                     .text-capitalize{
                         font-size:20px;
                     }
-                    p{
+                    /* p{
                         font-size: 18px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
-                    }
+                    } */
                     .swiper2 {
                         width: 100%;
                         height: 280px;
@@ -148,12 +141,12 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                     .text-capitalize{
                         font-size:20px;
                     }
-                    p{
+                    /* p{
                         font-size: 13px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
-                    }
+                    } */
                     .swiper2 {
                         width: 100%;
                         height: 250px;
@@ -176,13 +169,13 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                     .text-capitalize{
                         font-size:20px;
                     }
-                    p{
+                    /* p{
                         font-size: 18px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
                         width: 330px;
-                    }
+                    } */
                     .table-responsive{
                         width: 330px;
                         margin-top:0px;
@@ -220,14 +213,14 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                         font-size:20px;
                         margin-left:-20px
                     }
-                    p{
+                    /* p{
                         font-size: 12px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
                         width: 330px;
                         margin-left:-20px
-                    }
+                    } */
                     .table-responsive{
                         width: 320px;
                         margin-top:0px;
@@ -270,14 +263,14 @@ $myCompanyRow = mysqli_fetch_assoc($mysqlifooter);
                         font-size:20px;
                         /* margin-left:-20px */
                     }
-                    p{
+                    /* p{
                         font-size: 12px;
                         font-family: sans-serif;
                         letter-spacing: 1px;
                         color: #6d6d6d;
                         width: 300px;
                         /* margin-left:-20px */
-                    }
+                    } */
                     .table-responsive{
                         width: 320px;
                         margin-top:0px;

@@ -565,9 +565,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="form-group">
                                     <label style="color:black; font-size:20px; font-weight:bold" for="exampleFormControlTextarea1">Owner and Developer Information</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Replace Content or Details</p>
+                                   
 
-                                    <textarea class="form-control  bg-white " name="description" maxlength="4500" placeholder="Enter Some Description less then 4500 characters" id="exampleFormControlTextarea2" rows="3"><?php echo $rows_['description'] ?></textarea>
+                                    <textarea class="form-control  bg-white " name="description" maxlength="4500" placeholder="Enter Some Description less then 4500 characters" id="" rows="3"><?php echo $rows_['description'] ?></textarea>
                                 </div>
                                  <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -578,13 +578,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="form-group">
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlTextarea1">Map location Points</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content
-                                        Only
-                                        Replace Content or Details</p>
+                                
 
                                     <textarea class="form-control  bg-white " name="maplocationtext" maxlength="4500"
                                         placeholder="Enter Some Description less then 4500 characters"
-                                        id="maplocationtext" rows="7"><?php echo $rows__['maplocationtext'] ?></textarea>
+                                        id="" rows="7"><?php echo $rows__['maplocationtext'] ?></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -605,8 +603,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="form-group my-3">
                                     <label style="color:black; font-size:20px; font-weight:bold" for="exampleFormControlTextarea2">About NOC</label>
-                                    <p class="alert alert-danger">* Important Please Do Not Remove Below Content Only Replace Content or Details</p>
-                                    <textarea class="form-control  bg-white" name="AboutNOC" maxlength="4500" placeholder="Enter Some Description less then 4500 characters" id="exampleFormControlTextarea3" rows="3"><?php echo $rows_['AboutNOC'] ?></textarea>
+                                   
+                                    <textarea class="form-control  bg-white" name="AboutNOC" maxlength="4500" placeholder="Enter Some Description less then 4500 characters" id="" rows="3"><?php echo $rows_['AboutNOC'] ?></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
                                     <label style="color:black; font-size:20px; font-weight:bold" for="exampleFormControlInput1 col-md-">Noc Related Image :</label>
