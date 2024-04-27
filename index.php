@@ -183,9 +183,9 @@ if (isset($_POST['like'])) {
 
 
 <div style="width: 100%; height: auto;">
-    <div class="swiper ">
+    <div class="swiper mySwiper ">
         <!-- mySwiper -->
-        <div class="swiper-wrapper mySwiper">
+        <div class="swiper-wrapper ">
             <?php
             $count = 0;
             $query = mysqli_query($con, "SELECT * FROM `projects` ORDER BY `description` DESC");

@@ -640,90 +640,33 @@ input {
 
                                     <textarea class="tinymce form-control  bg-white" name="extradescription"
                                         maxlength="4500" placeholder="Enter Some Description less then 4500 characters"
-                                        id="exampleFormControlTextarea10" rows="13">
-                                        <div class="row col-md-12 col-sm-12 col-lg-12">
-                                            <div class="col-md-6 col-sm-12 col-lg-6">
-                                                   <h4 style="text-align: left;"><strong><span style="color: #000000;">Facilities and Amenties:</span></strong></h4>
-                                                    <hr />
-                                                    <p>To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:To add the media or video plugin to your TinyMCE initialization configuration, you need to include it in the <code>plugins</code> option and add a corresponding button to the toolbar. Here's how you can modify your TinyMCE initialization to include the media or video plugin:</p>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12 col-lg-6">
-                                            <table  class="table-responsive "style="border-collapse: collapse; width: 100; marin-top:30px" border="1">
-                                                    <tbody>
-                                                    <tr style="height: 22px;">
-                                                    <td style="width: 25%; height: 22px;"><strong>Built in year</strong></td>
-                                                    <td style="width: 25%; height: 22px;">03/08/2022</td>
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>3rd Party</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">NO</td>
-                                                    </tr>
-                                                    <tr style="height: 22px;">
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Swiming Pool</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">NO</td>
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Alivator</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">YES</td>
-                                                    </tr>
-                                                    <tr style="height: 22px;">
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Parking</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">YES</td>
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>CCTV</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">YES</td>
-                                                    </tr>
-                                                    <tr style="height: 22px;">
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>GYM</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">YES</td>
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Water Supply</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">Yes</td>
-                                                    </tr>
-                                                    <tr style="height: 22px;">
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Type</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">Flat</td>
-                                                    <td style="width: 25%; height: 22px;">
-                                                    <div>
-                                                    <div><strong>Dining Capacity</strong></div>
-                                                    </div>
-                                                    </td>
-                                                    <td style="width: 25%; height: 22px;">YES</td>
-                                                    </tr>
-                                                    </tbody>
-                                                    </table>
-                                        </div>
-                                        </div>
-                                                   
-                                                   
-                                                    
-                                </textarea>
+                                        id="exampleFormControlTextarea10" rows="13">  <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 ">
+                                        <ul>
+                                            <li> Spacious Front and Rear Parking</li>
+                                            <li> Both side road connectivity</li>
+                                            <li> Independent Water Boring</li>
+                                            <li> Independent Electric Transformer</li>
+                                            <li> 2 Stair Cases & 2 Lifts</li>
+                                        </ul>
+                                    </div>
+                                    <div class="font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
+                                       <table class="table table-striped">
+                                            <tbody>
+                                                <tr>
+                                                <td>CCTV</td>
+                                                <td>YES</td>
+                                                <td>Water Supply</td>
+                                                <td>YES</td>
+                                                </tr>
+                                                <tr>
+                                                <td>Lift</td>
+                                                <td>YES</td>
+                                                <td>TV Cable</td>
+                                                <td>YES</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div></textarea>
                                 </div>
                                 <style>
                                      /* CSS for the dotted border and container height */

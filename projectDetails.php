@@ -218,7 +218,7 @@ $row = mysqli_fetch_assoc($query);
                                 </div>
                             </div>
                            
-                            <div style="margin: 84px 0px;">
+                            <div style="margin: 30px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                         <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12 ">Noc Related Info:</h4>
 
@@ -226,21 +226,30 @@ $row = mysqli_fetch_assoc($query);
                                         <img class="NOC" src="./admin/uploads/<?php echo $row['Noc Related Image :']; ?>"
                                             alt="no image">
                                     </div>
-                                    <div class=" table-striped font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
+                                    <div class="font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
                                         <?php echo $row['AboutNOC']; ?>
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="table-striped font-14 pb-2">
+
+                            <div style="margin: 30px 0px;">
+                                <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12 ">Facilities and Amenities:</h4>
+                                <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                 <?php echo htmlspecialchars_decode($row['FacilitiesandAmenties']); ?>
+
+                                  
+                                </div>
                             </div>
+                            
+
+
+                          
                             <?php
                             
                             $query_= mysqli_query($con, "SELECT * FROM `projectsextends` where porEid=$id");
                             $row_ = mysqli_fetch_assoc($query_);
                             ?>
-                            <div style="margin: 84px 0px;">
+                            <div style="margin: 30px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                     <div class=" table-striped font-14 pb-2 col-md-12 col-sm-12 col-lg-12 col-xl-12  ">
                                         <?php  if($row_['floorplan']){
@@ -256,7 +265,7 @@ $row = mysqli_fetch_assoc($query);
                                     </div>
                                 </div>
                             </div>
-                            <div style="margin: 84px 0px;">
+                            <div style="margin: 30px 0px;">
                                 <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                     <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12">Nearest Locations</h4>
                                     
