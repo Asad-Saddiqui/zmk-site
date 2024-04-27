@@ -86,6 +86,9 @@ $row = mysqli_fetch_assoc($query);
                     font-optical-sizing: auto;
                     font-style: normal;
                     }
+                    p,.fc div ul li{
+                        font-size: 20px;
+                    }
         </style>
 </head>
 
@@ -227,14 +230,14 @@ $row = mysqli_fetch_assoc($query);
                                             alt="no image">
                                     </div>
                                     <div class="font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
-                                        <?php echo $row['AboutNOC']; ?>
+                                       <p> <?php echo $row['AboutNOC']; ?></p>
                                     </div>
                                 </div>
                             </div>
 
                             <div style="margin: 30px 0px;">
                                 <h4 class="text-dark col-md-12 col-sm-12 col-lg-12 col-xl-12 ">Facilities and Amenities:</h4>
-                                <div class="row col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
+                                <div class="row fc col-md-12 col-sm-12 col-lg-12 col-xl-12 ">
                                 <?php echo htmlspecialchars_decode($row['FacilitiesandAmenties']); ?>
 
                                   
@@ -275,7 +278,7 @@ $row = mysqli_fetch_assoc($query);
                                             alt="no image">
                                     </div>
                                     <div class=" table-striped font-14 pb-2 col-md-6 col-sm-12 col-lg-6 col-xl-6  ">
-                                        <?php echo $row_['maplocationtext']; ?>
+                                        <p><?php echo $row_['maplocationtext']; ?></p>
                                     </div>
                                 </div>
                             </div>
