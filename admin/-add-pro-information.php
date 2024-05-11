@@ -170,7 +170,7 @@ if (!empty($pid)) {
                                             <label class="col-lg-3 col-form-label" for="validationServer013">Description</label>
 
                                             <div class="col-lg-12 ">
-                                                <textarea class="form-control bg-white text-dark <?php  ?> " placeholder="Enter Property Description" name="description" id="validationServer013" rows="6" maxlength="650" style="background-color:white; resize:none"><?php echo $num_row['description'] ?></textarea>
+                                                <textarea class="form-control bg-white text-dark <?php  ?> " placeholder="Enter Property Description" name="description" id="validationServer013" rows="6" maxlength="4800" style="background-color:white; resize:none"><?php echo $num_row['description'] ?></textarea>
                                                 <div class="<?php  ?>">
                                                     <?php  ?>
                                                 </div>
