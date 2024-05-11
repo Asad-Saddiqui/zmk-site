@@ -68,10 +68,10 @@ if ($pid) {
             echo '<script>alert("Please Upload Image")</script>';
             }
             if(!$erroOccure){
-                if(empty(trim($youtubeUrls)) ){
-                    $erroOccure=false;
-                    echo '<script>alert("Please Enter youtube video Link")</script>';
-                }
+                // if(empty(trim($youtubeUrls)) ){
+                //     $erroOccure=false;
+                //     echo '<script>alert("Please Enter youtube video Link")</script>';
+                // }
                 if(!$erroOccure){
                         $totalFiles = count($_FILES['imgfiles']['name']);
                         $namesImages=[] ;
@@ -100,8 +100,9 @@ if ($pid) {
                             }
                         }
                         if(count($imagePaths)>0){
-                            if ($ebedurl=embedYouTubeVideo($youtubeUrls)) {
-                               $validYoutubeUrls=$ebedurl;
+                          if (!$youtubeUrls ||  ($youtubeUrls && $ebedurl=embedYouTubeVideo($youtubeUrls))) {
+                              
+                                $validYoutubeUrls=$youtubeUrls?$ebedurl:"";
                                 $images = "SELECT * FROM propertyimages WHERE pid=$pid;";
                                     $result_ = mysqli_query($con, $images);
                                     $imageFolder = "./uploads/";
