@@ -84,7 +84,7 @@
                   </div>
               </div>
               <div class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class=" fa fa-cart"></i>
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-shopping-cart"></i>
                       Card & Account </a>
                   <div class="dropdown-menu bg-transparent border-0">
                       <a href="@productCard.php" class="dropdown-item">Product Card</a>
