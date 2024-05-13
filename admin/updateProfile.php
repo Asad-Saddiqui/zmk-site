@@ -32,20 +32,21 @@ if (isset($_POST['contactbtn'])) {
     } elseif (strlen($companyName) > 50) {
         $errors = "Company Name should not exceed 50 characters";
     }
-    $allowedImageTypes = ['image/png', 'image/jpg', 'image/jpeg'];
-    $aimage = $_FILES['a_img'];
+   $allowedImageTypes = ['image/png', 'image/jpg', 'image/jpeg'];
+    $aimage = $_FILES['a_img'] ?? null; // Using the null coalescing operator to handle unset index
     $uimage = '';
-    if ($aimage) {
-        $aimageType = $_FILES['a_img']['type'];
-        $fileExtension = pathinfo($_FILES['a_img']['name'], PATHINFO_EXTENSION);
-        // $errors = $fileExtension;
+
+    if ($aimage && $aimage['error'] === UPLOAD_ERR_OK) { // Check if file is set and uploaded successfully
+        $aimageType = $aimage['type'];
+        $fileExtension = pathinfo($aimage['name'], PATHINFO_EXTENSION);
 
         if (!in_array($aimageType, $allowedImageTypes)) {
-            $errors = "Please select a valid image type (png, jpg, jpeg) s";
+            $errors = "Please select a valid image type (png, jpg, jpeg)";
         } else {
             $uimage = time() . "logo" . "." . $fileExtension;
-            $temp_name  = $_FILES['a_img']['tmp_name'];
+            $temp_name  = $aimage['tmp_name'];
             move_uploaded_file($temp_name, "./common/user/$uimage");
+            // Assuming $rows__['logo'] is the filename in the database to be replaced
             unlink('./common/user/' . $rows__['logo']);
         }
     }
