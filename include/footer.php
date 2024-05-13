@@ -66,16 +66,6 @@
                 </div>
             </div>
         </div>
-        <div class="row copyright">
-            <div class="col-sm-6"> <span class="text-white">© <?php echo date('Y'); ?> ZMK Marketing Website - Developed
-                    By Asad Tariq Saddiqui</span> </div>
-            <div class="col-sm-6">
-                <ul class="line-menu text-white hover-text-primary float-right">
-                    <li><a href="https://wa.me/+923489979762">Click here to open WhatsApp</a></li>
-                    <li>|</li>
-                    <li><a href="https://wa.me/+923489979762"> 03489979762</a></li>
-                </ul>
-            </div>
-        </div>
+        
     </div>
 </footer>
