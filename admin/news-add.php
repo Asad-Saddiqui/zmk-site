@@ -177,17 +177,17 @@ if (isset($_POST['reg'])) {
 
                                 <form method="post" enctype="multipart/form-data">
                                     <div class="form-group">
-                                   <select class="form-control bg-white my-2" type="text" style="background-color: #191C24;height:50px; color: red; font-family: sans-serif;" name="name">
+                                   <select class="form-control bg-white my-2" type="text" style="background-color: #191C24;height:50px; color: black; font-family: sans-serif;" name="name">
                                     <option value="Blog">Blog</option>
                                     <option value="News">News</option>
                                    </select>
                                    
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control bg-white my-2" type="text" style="background-color: #191C24;height:50px; color: red; font-family: sans-serif;" placeholder="Title" name="title">
+                                        <input class="form-control bg-white my-2" type="text" style="background-color: #191C24;height:50px; color: black; font-family: sans-serif;" placeholder="Title" name="title">
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control bg-white" name="description" id="exampleFormControlTextarea1" maxlength="450" placeholder="Description" style="background-color: #191C24;color: red;" rows="10"></textarea>
+                                        <textarea class="form-control bg-white" name="description" id="exampleFormControlTextarea1" maxlength="450" placeholder="Description" style="background-color: #191C24;color: black;" rows="10"></textarea>
                                     </div>
 
 
