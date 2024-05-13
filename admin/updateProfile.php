@@ -48,8 +48,6 @@ if (isset($_POST['contactbtn'])) {
             move_uploaded_file($temp_name, "./common/user/$uimage");
             unlink('./common/user/' . $rows__['logo']);
         }
-    } else {
-        $errors = "Please select a valid image type (png, jpg, jpeg) nn";
     }
 
     // Validate Company Email
@@ -99,7 +97,8 @@ if (isset($_POST['contactbtn'])) {
             WHERE 
             `profile`.`uid` = 1";
             if (mysqli_query($con, $sqli_)) {
-                $errors = "Record Save successfully";
+                              $error = "<script>alert('Profile Updated Successfully')</script>";
+
             } else {
                 $errors = "Error: " . $insertQuery . "<br>" . mysqli_error($con);
             }
