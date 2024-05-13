@@ -183,7 +183,7 @@ if (isset($_POST['reg'])) {
                                         <input class="form-control bg-white my-2" type="text" style="background-color: #191C24;height:50px; color: red; font-family: sans-serif;" placeholder="Title" name="title">
                                     </div>
                                     <div class="form-group">
-                                        <textarea class="form-control bg-white" name="description" id="exampleFormControlTextarea1" maxlength="450" placeholder="Description" style="background-color: #191C24;height:50px; color: red; font-family: sans-serif;" rows="6"></textarea>
+                                        <textarea class="form-control bg-white" name="description" id="exampleFormControlTextarea1" maxlength="450" placeholder="Description" style="background-color: #191C24;height:50px; color: red; font-family: sans-serif;" rows="10"></textarea>
                                     </div>
 
 
