@@ -65,10 +65,10 @@
               </div>
 
 
-              <a href="./membership.php" class="nav-item nav-link "><i class=" fa fa-building me-2"></i>Membership</a>
+              <a href="./membership.php" class="nav-item nav-link "><i class=" fa fa-table me-2"></i>Membership</a>
     
               <div class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class=" fa fa-map"></i>
+                  <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class=" fa fa-building"></i>
                       Property</a>
                   <div class="dropdown-menu bg-transparent border-0">
                       <a href="_addproperty.php" class="dropdown-item">Add Property</a>
