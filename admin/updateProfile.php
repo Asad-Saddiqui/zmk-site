@@ -41,7 +41,7 @@ if (isset($_POST['contactbtn'])) {
         // $errors = $fileExtension;
 
         if (!in_array($aimageType, $allowedImageTypes)) {
-            $errors = "Please select a valid image type (png, jpg, jpeg)";
+            $errors = "Please select a valid image type (png, jpg, jpeg) s";
         } else {
             $uimage = time() . "logo" . "." . $fileExtension;
             $temp_name  = $_FILES['a_img']['tmp_name'];
