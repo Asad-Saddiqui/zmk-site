@@ -35,8 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $maxProjectNameLength = 100;
     $maxMapUrlLength = 1000;
     $maxAddressLength = 70;
-    $maxFeaturesLength = 800;
-    $maxDescriptionLength = 4500;
+    $maxFeaturesLength = 3000;
+    $maxDescriptionLength = 3000;
     $floorplans_name="";
     $PricingDocument_name="";
     // Validate and sanitize form inputs
@@ -69,12 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (strlen($features) > $maxFeaturesLength || empty($features)) {
         $error = true;
         echo '<script>alert("Enter  Features   less then ' . $maxFeaturesLength . 'char")</script>';
-    } elseif (strlen($extradescription) > 4500 || empty($extradescription)) {
+    } elseif (strlen($extradescription) > 3000 || empty($extradescription)) {
         $error = true;
-        echo '<script>alert("Enter  features and ammenities   less then ' . 4500 . 'char")</script>';
-    } elseif (strlen($maplocationtext) > 4500 || empty($maplocationtext)) {
+        echo '<script>alert("Enter  features and ammenities   less then ' . 3000 . 'char")</script>';
+    } elseif (strlen($maplocationtext) > 3000 || empty($maplocationtext)) {
         $error = true;
-        echo '<script>alert("Map Location Points   less then ' . 4500 . 'char")</script>';
+        echo '<script>alert("Map Location Points   less then ' . 3000 . 'char")</script>';
     } elseif (strlen($description) > $maxDescriptionLength || empty($description)) {
         $error = true;
         echo '<script>alert("Enter  Description   less then ' . $maxDescriptionLength . 'char")</script>';
@@ -558,7 +558,7 @@ input {
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlInput1 col-md-">Map URL</label>
                                     <input type="url" class="form-control  bg-white" id="input" name="map_url"
-                                        id="exampleFormControlInput1" maxlength="300" placeholder="Enter Map Location">
+                                        id="exampleFormControlInput1"  placeholder="Enter Map Location">
                                 </div>
                                 <div class="form-group my-2  col-sm-12 col-md-12 col-lg-12 ">
                                     <label style="color:black; font-size:20px; font-weight:bold"
@@ -570,7 +570,7 @@ input {
                                 <div class="form-group  my-3">
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlTextarea1">Introduction</label>
-                                    <textarea class="form-control   bg-white gb-white text-dark " maxlength="800"
+                                    <textarea class="form-control   bg-white gb-white text-dark " 
                                         name="features" placeholder="Enter Some Features less then 700 characters"
                                         id="exampleFormControlTextarea" rows="3"></textarea>
                                 </div>
@@ -579,8 +579,8 @@ input {
                                         for="exampleFormControlTextarea1">Owner and Developer Information</label>
                                  
 
-                                    <textarea class="form-control  bg-white " name="description" maxlength="4500"
-                                        placeholder="Enter Some Description less then 4500 characters"
+                                    <textarea class="form-control  bg-white " name="description" maxlength="3000"
+                                        placeholder="Enter Some Description less then 3000 characters"
                                         id="" rows="3"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
@@ -594,8 +594,8 @@ input {
                                         for="exampleFormControlTextarea1">Nearest Locations</label>
                                     
 
-                                    <textarea class="form-control  bg-white " name="maplocationtext" maxlength="4500"
-                                        placeholder="Enter Some Description less then 4500 characters"
+                                    <textarea class="form-control  bg-white " name="maplocationtext" maxlength="3000"
+                                        placeholder="Enter Some Description less then 3000 characters"
                                         id="" rows="7"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
@@ -621,8 +621,8 @@ input {
                                     <label style="color:black; font-size:20px; font-weight:bold"
                                         for="exampleFormControlTextarea2">About NOC</label>
                                     
-                                    <textarea class="form-control  bg-white" name="AboutNOC" maxlength="4500"
-                                        placeholder="Enter Some Description less then 4500 characters"
+                                    <textarea class="form-control  bg-white" name="AboutNOC" maxlength="3000"
+                                        placeholder="Enter Some Description less then 3000 characters"
                                         id="" rows="3"></textarea>
                                 </div>
                                 <div class="form-group my-3  col-sm-12 col-md-12 col-lg-12 ml-1">
@@ -639,7 +639,7 @@ input {
                                         Replace Content or Details</p>
 
                                     <textarea class="tinymce form-control  bg-white" name="extradescription"
-                                        maxlength="4500" placeholder="Enter Some Description less then 4500 characters"
+                                        maxlength="3000" placeholder="Enter Some Description less then 3000 characters"
                                         id="exampleFormControlTextarea10" rows="13">  <div class="col-md-6 col-sm-12 col-lg-6 col-xl-6 ">
                                         <ul>
                                             <li> Spacious Front and Rear Parking</li>
@@ -790,7 +790,7 @@ input {
             $('#imagePreviewContainer').empty(); // Clear previous previews
 
             // Limit the number of selected images to 10
-            var maxImages = 8;
+            var maxImages = 20;
             var selectedImages = this.files.length;
 
             // Check if the number of selected images exceeds the limit
